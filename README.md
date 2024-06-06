@@ -2,7 +2,7 @@
 
 Small solutions to [Practice Python problems](https://www.practicepython.org/)
 
-These problems seem fairly simple so ideally this will be an opportunity to focus on how the problem is solved (with a focus on elegance). It'll also be a good time to build a habbit of using type hints in python.
+These problems seem fairly simple so ideally this will be an opportunity to focus on how the problem is solved (with a focus on elegance). It'll also be a good time to build a habit of using type hints in python.
 
 ## Setup
 
