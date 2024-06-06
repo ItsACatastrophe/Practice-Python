@@ -1,0 +1,48 @@
+# TODO: use pytest for this. So much work to get prints (both in test and in the code) in STDout
+
+import logging
+import sys
+import unittest
+
+from unittest.mock import patch, MagicMock
+
+
+from character_input import main
+
+
+"""
+An initial goal of this project was to try and use as many native python libraries as possible.
+The default unittest library lacking kind path handling/import resolution, the ability to
+concisely pipe to Stdout, etc. lead me to scrap it and switch to pytest for the rest of the project.
+"""
+
+
+class TestCharacterInput(unittest.TestCase):
+    log = logging.getLogger("TestCase")
+
+    @patch("builtins.input")
+    @patch("builtins.print")
+    def test_success(
+        self,
+        mock_print: MagicMock,
+        mock_input: MagicMock,
+    ):
+        mock_input.side_effect = [
+            "Catherine",  # Name input
+            "90",  # Age input
+        ]
+        self.log.debug("-----Hello World")
+        self.log.debug(mock_input)
+        self.log.debug(mock_print)
+
+        main()
+
+        self.log.debug(mock_print.call_args)
+
+        pass
+
+
+if __name__ == "__main__":
+    logging.basicConfig(stream=sys.stdout)
+    logging.getLogger("TestCase").setLevel(logging.DEBUG)
+    unittest.main()
