@@ -5,7 +5,7 @@ from pytest_mock import MockerFixture
 from character_input import main
 
 
-def test_success(mocker: MockerFixture):
+def test_main(mocker: MockerFixture):
     # Utilizing the iterable input of side_effect
     mocker.patch("builtins.input").side_effect = ["Catherine", "90"]
     mock_print = mocker.patch("builtins.print")
