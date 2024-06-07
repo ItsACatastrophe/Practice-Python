@@ -3,6 +3,8 @@ from random import randint
 
 
 def main(l1: List[int], l2: List[int]):
+    # set(l1) dedupes all e.
+    # Don't have to dedupe l2 since we're just checking for containment
     return [e for e in set(l1) if e in l2]  # I love 1 liners
 
 
